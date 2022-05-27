@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Trabajo 1</title>
+  <link rel='stylesheet' href='https://unpkg.com/graph-editor@0.1.0/dist/css/graph-editor-dark.css'>
+  <link rel="stylesheet" href="assets/css/index.css">
+</head>
+
+<body>
+
+  <div class="div-utem">
+    <a title="UTEM" href="http://www.utem.cl" target="_blank">
+      <img src="https://www.utem.cl/wp-content/themes/utem_adm22/images/01_img_cor/00_id_corp/imagotipo_utem_767.png"
+        width="150" height="35" /></a>
+  </div>
+
+  <div id="graph-container">
+    <svg id="graph"></svg>
+  </div>
+
+  <div id="sidebar">
+    <h4>Editor de grafos</h4>
+    <div class="row">
+      <div class='menu-options'>
+        <ul>
+          <li>
+            Doble click - Zoom In
+          </li>
+          <li>
+            Scroll - Zoom In/Out
+          </li>
+          <li>
+            Click Izquierdo - Seleccionar Nodo/Arista
+          </li>
+          <li>
+            Seleccionar Arista Para Editar Peso
+          </li>
+          <li>
+            Shift + Click Izquierdo - Agregar un nodo
+          </li>
+          <li>
+            Shift + Arrastrar de Nodo a Nodo - Agregar un Vinculo
+          </li>
+          <li>
+            Delete/Supr - Borrar Nodo/Vinculo seleccionado
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="row">
+      <a id="import" class="btn fill" href="#">Importar</a>
+      <a id="export" class="btn fill" href="#">Exportar</a>
+    </div>
+    <div id="selected-node" class="row hide">
+      <div class="form">
+        <h5>Nodos</h5>
+        <div>
+          <label for="node-title">Numero del vertice</label>
+          <input id="node-title" type="text">
+        </div>
+      </div>
+    </div>
+    <div id="selected-link" class="row hide">
+      <div class="form">
+        <h5>Arista</h5>
+        <div>
+          <label for="link-title">Peso</label>
+          <input id="link-title" type="text">
+        </div>
+        <div>
+          <label for="arista">
+            Arista
+          </label>
+          <select id="arista" onchange="ShowSelected();">
+            <option value="simple">Simple</option>
+            <option value="dirigida">Dirigida</option>
+          </select>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="modal" class="modal-bg hide">
+    <div class="modal-container">
+      <div class="modal form">
+        <h5 class="modal-title">Exportar</h5>
+        <div class="row">
+          <label for="data">Informacion del grafo:</label>
+        </div>
+        <div class="row">
+          <textarea id="data">
+				</textarea>
+        </div>
+        <div class="row">
+          <div class="error">
+          </div>
+        </div>
+        <div class="row">
+          <a id="copy" class="btn fill" href="#">Copiar</a>
+        </div>
+        <div class="row">
+          <a class="btn fill modal-cancel" href="#">Cancel</a>
+          <a class="btn fill modal-ok" href="#">Aceptar</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- partial -->
+  <script src='https://unpkg.com/d3@5.7.0/dist/d3.js'></script>
+  <script src='https://unpkg.com/graph-editor@0.1.0/dist/js/graph-editor.js'></script>
+  <script src="assets/js/script.js"></script>
+
+</body>
+
+</html>
